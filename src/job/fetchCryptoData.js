@@ -20,11 +20,12 @@ const fetchAndStoreCryptoData = async () => {
 
     // console.log("Crypto data -->> ", crypto);
 
-      await Crypto.findOneAndUpdate(
-        { name: crypto.name },
-        { ...crypto, updatedAt: new Date() },
-        { upsert: true }
-      );
+      // await Crypto.findOneAndUpdate(
+      //   { name: crypto.name },
+      //   { ...crypto, updatedAt: new Date() },
+      //   { upsert: true }
+      // );
+      await Crypto.insertMany(crypto);
     }
 
     console.log('Crypto data updated successfully at ', Date());
